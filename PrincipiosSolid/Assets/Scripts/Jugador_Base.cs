@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Jugador_Base : MonoBehaviour
+public  class Jugador_Base : MonoBehaviour
 {
     [Header("SELECTOR DE CONJUROS")]
     [SerializeField] private GameObject conjuro1;
@@ -30,6 +30,7 @@ public abstract class Jugador_Base : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             conjuroCasteado = Instantiate(conjuroPreparado, puntoDeSpawn.position, puntoDeSpawn.rotation);
+            conjuroCasteado.GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 
