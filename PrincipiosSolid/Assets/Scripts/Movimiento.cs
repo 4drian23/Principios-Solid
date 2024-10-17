@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
-    private int velocidadDeMovimiento;
-    private int velocidadDeRotacion;
+    [SerializeField] private int velocidadDeMovimiento;
+    [SerializeField] private int velocidadDeRotacion;
 
     void Start()
     {
@@ -17,11 +17,6 @@ public class Movimiento : MonoBehaviour
         LogicaMovimiento();
     }
 
-    public void ObtenerVelocidades(int VelMoV, int VelRot)
-    {
-        velocidadDeMovimiento = VelMoV;
-        velocidadDeRotacion = VelRot;
-    }
     private void LogicaMovimiento()
     {
         float hor = 0;
