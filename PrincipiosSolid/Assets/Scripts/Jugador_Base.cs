@@ -4,54 +4,54 @@ using UnityEngine;
 
 public  class Jugador_Base : MonoBehaviour
 {
-    [Header("SELECTOR DE CONJUROS")]
-    [SerializeField] private GameObject conjuro1;
-    [SerializeField] private GameObject conjuro2;
-    [SerializeField] private GameObject conjuro3;
     [SerializeField] private Transform puntoDeSpawn;
 
-    private GameObject conjuroCasteado;
-    private GameObject conjuroPreparado;
+    private Hechizo_Base spellCasteado;
+    private Hechizo_Base spellPreparado;
+    private ListaDeConjuros hechizosPreparados;
+    private bool casteandoHechizo;
 
     void Start()
     {
-        conjuroPreparado = conjuro1;
+        hechizosPreparados = this.GetComponent<ListaDeConjuros>();
+        //Se obtiene una referencia de la lsita de conjuros para poder ejecutar sus metodos desde este script.
     }
 
     
     void Update()
     {
         LanzarConjuros();
-        CambiarDeConjuro();
+        hechizosPreparados.PrepararConjuro();
     }
 
     private void LanzarConjuros()
     {
         if (Input.GetKeyDown(KeyCode.K))
-        {
-            conjuroCasteado = Instantiate(conjuroPreparado, puntoDeSpawn.position, puntoDeSpawn.rotation);
-            conjuroCasteado.transform.parent = puntoDeSpawn;
-            conjuroCasteado.GetComponentInChildren<ParticleSystem>().Play();
+        {   
+            if(casteandoHechizo == false) // si casteandoHechizo es verdadero precionar la tecla K no hara nada hasta que la variable sea falsa.
+            {
+                spellPreparado = hechizosPreparados.EntragarConjuroPreparado();
+                //Se obtiene una referencia del hechizo preparado para castear.
+
+                if(spellPreparado != null)
+                {
+                    casteandoHechizo = true;
+                    spellCasteado = Instantiate(spellPreparado, puntoDeSpawn.position, puntoDeSpawn.rotation);
+                    spellCasteado.transform.parent = puntoDeSpawn; //La isntacnia creada del hechizo se comvierte en hijo del objeto que proporciona la posicion para que se pueda mover junto al jugador.
+                    StartCoroutine(DuracionDelHechizo(spellCasteado.DevolverDuracionDelHechizo()));
+                    //Se inicia esta corrutina para que el hechizo desaparezca luego de un tiempo determinado.
+                }
+            }
+            
         }
     }
 
-    private void CambiarDeConjuro()
+    IEnumerator DuracionDelHechizo(float time)
     {
-         if (Input.GetKeyDown(KeyCode.J))
-        {
-            Destroy(conjuroCasteado);
-            conjuroPreparado = conjuro1;
-
-        }
-        else if(Input.GetKeyDown(KeyCode.I))
-        {
-            Destroy(conjuroCasteado);
-            conjuroPreparado = conjuro2;
-        }
-        else if(Input.GetKeyDown(KeyCode.L))
-        {
-            Destroy(conjuroCasteado);
-            conjuroPreparado = conjuro3;
-        }
+        yield return new WaitForSeconds(time);
+        Destroy(spellCasteado.gameObject);
+        casteandoHechizo = false;
+        //Ahora que castenadoHechizo es falso, precioanr la tecla K creara una nueva instancia del hechizo que este preparado.
+        Debug.Log("Finalizo el Hechizo");
     }
 }

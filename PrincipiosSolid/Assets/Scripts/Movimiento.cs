@@ -32,7 +32,7 @@ public class Movimiento : MonoBehaviour
 
         this.transform.position += direccionDeMovimiento * velocidadDeMovimiento * Time.deltaTime;
 
-        if(direccionDeMovimiento != Vector3.zero)
+        if(direccionDeMovimiento != Vector3.zero && hor < 0 || hor > 0)
         {
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direccionDeMovimiento), velocidadDeRotacion * Time.deltaTime);
         }
