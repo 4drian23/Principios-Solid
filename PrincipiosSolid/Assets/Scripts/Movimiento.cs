@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movimiento : MonoBehaviour
 {
     [SerializeField] private int velocidadDeMovimiento;
-    [SerializeField] private int velocidadDeRotacion;
+    [SerializeField] private float velocidadDeRotacion;
 
     void Start()
     {
@@ -28,7 +28,9 @@ public class Movimiento : MonoBehaviour
 
         Vector3 direccionDeMovimiento = new Vector3(hor, 0, ver).normalized;
 
-        this.transform.position = this.transform.position + direccionDeMovimiento * velocidadDeMovimiento * Time.deltaTime;
+        direccionDeMovimiento = transform.TransformDirection(direccionDeMovimiento);
+
+        this.transform.position += direccionDeMovimiento * velocidadDeMovimiento * Time.deltaTime;
 
         if(direccionDeMovimiento != Vector3.zero)
         {
