@@ -30,6 +30,7 @@ public  class Jugador_Base : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             conjuroCasteado = Instantiate(conjuroPreparado, puntoDeSpawn.position, puntoDeSpawn.rotation);
+            conjuroCasteado.transform.parent = puntoDeSpawn;
             conjuroCasteado.GetComponentInChildren<ParticleSystem>().Play();
         }
     }
