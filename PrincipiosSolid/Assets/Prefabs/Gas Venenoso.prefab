@@ -129,6 +129,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
       value: 0.057691574
       objectReference: {fileID: 0}
@@ -147,6 +155,38 @@ PrefabInstance:
     - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 0.057891503
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
+      value: 0.58517456
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
+      value: 0.41482544
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: 0.41482544
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: 0.41482544
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 0.41482544
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375452788936793694, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114784940188402355, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
+      propertyPath: m_Name
+      value: Gas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
