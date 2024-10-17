@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movimiento : MonoBehaviour
 {
     [SerializeField] private int velocidadDeMovimiento;
-    [SerializeField] private int velocidadDeRotacion;
+    [SerializeField] private float velocidadDeRotacion;
 
     void Start()
     {
@@ -28,9 +28,11 @@ public class Movimiento : MonoBehaviour
 
         Vector3 direccionDeMovimiento = new Vector3(hor, 0, ver).normalized;
 
-        this.transform.position = this.transform.position + direccionDeMovimiento * velocidadDeMovimiento * Time.deltaTime;
+        direccionDeMovimiento = transform.TransformDirection(direccionDeMovimiento);
 
-        if(direccionDeMovimiento != Vector3.zero)
+        this.transform.position += direccionDeMovimiento * velocidadDeMovimiento * Time.deltaTime;
+
+        if(direccionDeMovimiento != Vector3.zero && hor < 0 || hor > 0)
         {
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direccionDeMovimiento), velocidadDeRotacion * Time.deltaTime);
         }
