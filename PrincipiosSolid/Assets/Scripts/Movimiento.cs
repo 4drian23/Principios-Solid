@@ -7,17 +7,7 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private int velocidadDeMovimiento;
     [SerializeField] private float velocidadDeRotacion;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        LogicaMovimiento();
-    }
-
-    private void LogicaMovimiento()
+    public void LogicaMovimiento(Jugador_Base jugador)
     {
         float hor = 0;
         float ver = 0;
@@ -28,13 +18,13 @@ public class Movimiento : MonoBehaviour
 
         Vector3 direccionDeMovimiento = new Vector3(hor, 0, ver).normalized;
 
-        direccionDeMovimiento = transform.TransformDirection(direccionDeMovimiento);
+        direccionDeMovimiento = jugador.transform.TransformDirection(direccionDeMovimiento);
 
-        this.transform.position += direccionDeMovimiento * velocidadDeMovimiento * Time.deltaTime;
+        jugador.transform.position += direccionDeMovimiento * velocidadDeMovimiento * Time.deltaTime;
 
         if(direccionDeMovimiento != Vector3.zero && hor < 0 || hor > 0)
         {
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direccionDeMovimiento), velocidadDeRotacion * Time.deltaTime);
+            jugador.transform.rotation = Quaternion.Slerp(jugador.transform.rotation, Quaternion.LookRotation(direccionDeMovimiento), velocidadDeRotacion * Time.deltaTime);
         }
     }
 }

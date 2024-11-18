@@ -27,10 +27,13 @@ public class ListaDeConjuros : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             spellPreparado = spell_1;
+            Debug.Log("Hechizo 1 preparado");
+
         }
         else if (Input.GetKeyDown(KeyCode.I))
         {
             spellPreparado = spell_2;
+            Debug.Log("Hechizo 2 preparado");
         }
      }
 }

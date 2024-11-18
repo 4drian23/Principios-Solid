@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntoDeSpawn: {fileID: 74473528}
+  fachada: {fileID: 133785420}
 --- !u!4 &133785415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6328512192835756346, guid: e880f9f083f00894bbc5f8464e077ad4, type: 3}
@@ -178,6 +179,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spell_1: {fileID: 1938279275973630525, guid: 53ce8f1ee7c4ad14d8562eae4d7cce85, type: 3}
   spell_2: {fileID: 349017739594810990, guid: 6db3258b74f6462428726a9210744c6d, type: 3}
+--- !u!114 &133785420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133785411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd3d88f95eaf3f4d85d4465b83e4e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listaDeHechizos: {fileID: 133785417}
+  move: {fileID: 133785416}
 --- !u!1 &332583281
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +859,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7372404882038902385, guid: e880f9f083f00894bbc5f8464e077ad4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 133785417}
+    - targetCorrespondingSourceObject: {fileID: 7372404882038902385, guid: e880f9f083f00894bbc5f8464e077ad4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 133785420}
   m_SourcePrefab: {fileID: 100100000, guid: e880f9f083f00894bbc5f8464e077ad4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

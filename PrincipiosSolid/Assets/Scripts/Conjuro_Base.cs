@@ -14,7 +14,7 @@ public abstract class Hechizo_Base : MonoBehaviour
 
     protected virtual void LogicaDelHechizo()
     {
-         this.GetComponentInChildren<ParticleSystem>().Play();
+        this.GetComponentInChildren<ParticleSystem>().Play();
     }
 
     public float DevolverDuracionDelHechizo()
